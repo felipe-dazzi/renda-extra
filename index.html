@@ -56,11 +56,12 @@
   }
 
   .hero-inner {
-    max-width: 760px;
+    max-width: 680px;
     margin: 0 auto;
-    padding: 80px 24px 72px;
+    padding: 60px 20px 56px;
     position: relative;
     z-index: 1;
+    text-align: center;
   }
 
   .hero-badge {
@@ -70,24 +71,24 @@
     background: rgba(29,158,117,.15);
     border: 1px solid rgba(29,158,117,.3);
     color: #5DCAA5;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     letter-spacing: .08em;
     text-transform: uppercase;
     padding: 6px 14px;
     border-radius: 99px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
-  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #5DCAA5; animation: pulse 2s infinite; }
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #5DCAA5; animation: pulse 2s infinite; flex-shrink:0; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(32px, 6vw, 54px);
+    font-size: clamp(28px, 7vw, 52px);
     line-height: 1.12;
     color: var(--white);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     letter-spacing: -.02em;
   }
 
@@ -97,10 +98,10 @@
   }
 
   .hero-sub {
-    font-size: 18px;
+    font-size: clamp(15px, 4vw, 18px);
     color: rgba(255,255,255,.65);
-    max-width: 580px;
-    margin-bottom: 48px;
+    max-width: 520px;
+    margin: 0 auto 40px;
     font-weight: 300;
     line-height: 1.65;
   }
@@ -108,64 +109,73 @@
   .hero-cta-block {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: center;
+    gap: 14px;
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     background: var(--green-mid);
     color: var(--white);
     font-family: var(--sans);
-    font-size: 16px;
+    font-size: clamp(15px, 4vw, 16px);
     font-weight: 600;
-    padding: 18px 36px;
-    border-radius: 6px;
+    padding: 18px 32px;
+    border-radius: 8px;
     text-decoration: none;
     border: none;
     cursor: pointer;
     transition: background .2s, transform .15s;
     letter-spacing: .01em;
+    width: 100%;
+    max-width: 400px;
   }
   .btn-primary:hover { background: var(--green); transform: translateY(-1px); }
   .btn-primary:active { transform: translateY(0); }
 
-  .btn-primary .arrow { font-size: 20px; transition: transform .2s; }
+  .btn-primary .arrow { font-size: 18px; transition: transform .2s; }
   .btn-primary:hover .arrow { transform: translateX(3px); }
 
   .hero-guarantee {
-    font-size: 13px;
-    color: rgba(255,255,255,.45);
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
   }
   .hero-guarantee svg { flex-shrink: 0; }
 
   /* ── SOCIAL PROOF BAR ───────────────────────────────────────────────── */
   .proof-bar {
     background: var(--green);
-    padding: 18px 24px;
+    padding: 16px 20px;
     display: flex;
     justify-content: center;
-    gap: 48px;
+    gap: 24px;
     flex-wrap: wrap;
   }
   .proof-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: rgba(255,255,255,.9);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
   }
-  .proof-item strong { color: #fff; font-size: 16px; }
+  .proof-item strong { color: #fff; font-size: 14px; }
 
   /* ── SECTIONS ────────────────────────────────────────────────────────── */
-  section { padding: 80px 24px; }
-  .container { max-width: 760px; margin: 0 auto; }
+  section { padding: 64px 20px; }
+  .container {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
   .section-label {
     font-size: 11px;
@@ -173,25 +183,26 @@
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--green-mid);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   h2 {
     font-family: var(--serif);
-    font-size: clamp(26px, 4vw, 40px);
+    font-size: clamp(24px, 5vw, 38px);
     line-height: 1.18;
     color: var(--ink);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: -.02em;
   }
   h2 em { font-style: italic; color: var(--green); }
 
   .lead {
-    font-size: 17px;
+    font-size: clamp(15px, 4vw, 17px);
     color: var(--ink-mid);
     line-height: 1.7;
     margin-bottom: 16px;
     font-weight: 300;
+    text-align: center;
   }
 
   /* ── PAIN SECTION ────────────────────────────────────────────────────── */
@@ -200,32 +211,37 @@
   .pain-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 40px;
+    gap: 12px;
+    margin-top: 36px;
+    text-align: left;
   }
-  @media(max-width:540px){ .pain-grid { grid-template-columns: 1fr; } }
+  @media(max-width: 480px){ .pain-grid { grid-template-columns: 1fr; } }
 
   .pain-card {
     background: var(--off-white);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 24px;
+    padding: 20px;
   }
-  .pain-card .icon { font-size: 24px; margin-bottom: 10px; }
-  .pain-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-  .pain-card strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 4px; font-size: 15px; }
+  .pain-card .icon { font-size: 22px; margin-bottom: 8px; }
+  .pain-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .pain-card strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 4px; font-size: 14px; }
 
   /* ── FOR YOU ─────────────────────────────────────────────────────────── */
   .for-you { background: var(--green-pale); }
 
-  .for-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+  .for-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
   .for-list li {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    font-size: 16px;
+    gap: 12px;
+    font-size: clamp(14px, 4vw, 15px);
     color: var(--ink-mid);
     line-height: 1.55;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
   }
   .check-icon {
     width: 22px; height: 22px;
@@ -244,59 +260,60 @@
     background: var(--ink);
     color: rgba(255,255,255,.85);
     border-radius: 12px;
-    padding: 40px;
+    padding: 32px 28px;
     position: relative;
     overflow: hidden;
-    margin-top: 40px;
+    margin-top: 32px;
+    text-align: left;
   }
   .story-box::before {
     content: '\201C';
     font-family: var(--serif);
-    font-size: 120px;
+    font-size: 100px;
     color: rgba(29,158,117,.2);
     position: absolute;
-    top: -10px; left: 20px;
+    top: -10px; left: 16px;
     line-height: 1;
     pointer-events: none;
   }
-  .story-box p { font-size: 16px; line-height: 1.75; margin-bottom: 16px; position: relative; z-index: 1; }
+  .story-box p { font-size: clamp(14px, 4vw, 16px); line-height: 1.75; margin-bottom: 14px; position: relative; z-index: 1; }
   .story-box p:last-child { margin-bottom: 0; }
-  .story-author { margin-top: 24px; display: flex; align-items: center; gap: 12px; position: relative; z-index:1; }
+  .story-author { margin-top: 20px; display: flex; align-items: center; gap: 12px; position: relative; z-index:1; }
   .author-avatar {
-    width: 44px; height: 44px; border-radius: 50%;
+    width: 42px; height: 42px; border-radius: 50%;
     background: var(--green-mid);
     display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 16px; color: white;
+    font-weight: 600; font-size: 15px; color: white;
     flex-shrink: 0;
   }
-  .author-name { font-weight: 500; color: #fff; font-size: 15px; }
-  .author-role { font-size: 13px; color: rgba(255,255,255,.5); }
+  .author-name { font-weight: 500; color: #fff; font-size: 14px; }
+  .author-role { font-size: 12px; color: rgba(255,255,255,.5); }
 
   /* ── CONTENT ────────────────────────────────────────────────────────── */
   .content-section { background: var(--off-white); }
 
-  .chapters { margin-top: 40px; display: flex; flex-direction: column; gap: 2px; }
+  .chapters { margin-top: 32px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
   .chapter-row {
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 24px;
+    border-radius: 10px;
+    padding: 16px 18px;
     display: flex;
     align-items: flex-start;
-    gap: 18px;
+    gap: 14px;
     transition: border-color .2s, box-shadow .2s;
   }
   .chapter-row:hover { border-color: var(--green-mid); box-shadow: 0 2px 12px rgba(15,110,86,.08); }
   .ch-badge {
-    width: 34px; height: 34px; border-radius: 8px;
+    width: 32px; height: 32px; border-radius: 8px;
     background: var(--green-light);
     color: var(--green);
-    font-size: 12px; font-weight: 700;
+    font-size: 11px; font-weight: 700;
     display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 2px;
+    flex-shrink: 0; margin-top: 1px;
   }
-  .ch-info strong { display: block; font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
-  .ch-info span { font-size: 13px; color: var(--muted); }
+  .ch-info strong { display: block; font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .ch-info span { font-size: 12px; color: var(--muted); }
 
   /* ── BONUSES ────────────────────────────────────────────────────────── */
   .bonus-section { background: var(--amber-light); }
@@ -306,15 +323,16 @@
     background: var(--white);
     border: 1px solid #F0D9A0;
     border-radius: 10px;
-    padding: 24px;
+    padding: 20px;
     display: flex;
-    gap: 18px;
-    margin-top: 20px;
+    gap: 14px;
+    margin-top: 16px;
+    text-align: left;
   }
-  .bonus-icon { font-size: 32px; flex-shrink: 0; }
-  .bonus-title { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
-  .bonus-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
-  .bonus-value { font-size: 12px; color: var(--amber); font-weight: 600; margin-top: 6px; }
+  .bonus-icon { font-size: 28px; flex-shrink: 0; }
+  .bonus-title { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
+  .bonus-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .bonus-value { font-size: 11px; color: var(--amber); font-weight: 600; margin-top: 6px; }
 
   /* ── PRICE ──────────────────────────────────────────────────────────── */
   .price-section { background: var(--white); }
@@ -323,9 +341,9 @@
     background: var(--off-white);
     border: 2px solid var(--border);
     border-radius: 16px;
-    padding: 48px 40px;
+    padding: 40px 28px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 32px;
     position: relative;
     overflow: hidden;
   }
@@ -337,70 +355,69 @@
     background: linear-gradient(90deg, var(--green), var(--green-mid));
   }
 
-  .price-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
-  .price-from {
-    font-size: 16px;
-    color: var(--muted);
-    text-decoration: line-through;
-    margin-bottom: 4px;
-  }
+  .price-label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .price-from { font-size: 15px; color: var(--muted); text-decoration: line-through; margin-bottom: 2px; }
   .price-main {
     font-family: var(--serif);
-    font-size: 72px;
+    font-size: clamp(56px, 14vw, 72px);
     color: var(--ink);
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
-  .price-main span { font-size: 28px; vertical-align: super; }
-  .price-sub { font-size: 14px; color: var(--muted); margin-bottom: 36px; }
+  .price-main span { font-size: 24px; vertical-align: super; }
+  .price-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
 
   .price-includes {
     display: flex;
     flex-direction: column;
     gap: 10px;
     text-align: left;
-    max-width: 380px;
-    margin: 0 auto 36px;
+    max-width: 360px;
+    margin: 0 auto 28px;
   }
   .price-line {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--ink-mid);
   }
-  .price-line .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; }
+  .price-line .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; }
 
   .btn-primary-lg {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    gap: 10px;
     background: var(--green-mid);
     color: var(--white);
     font-family: var(--sans);
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 18px);
     font-weight: 600;
-    padding: 22px 48px;
-    border-radius: 8px;
+    padding: 20px 32px;
+    border-radius: 10px;
     text-decoration: none;
     border: none;
     cursor: pointer;
     transition: background .2s, transform .15s;
     width: 100%;
-    max-width: 440px;
-    justify-content: center;
+    max-width: 420px;
+    margin: 0 auto;
     letter-spacing: .01em;
   }
   .btn-primary-lg:hover { background: var(--green); transform: translateY(-1px); }
+  .btn-primary-lg:active { transform: translateY(0); }
 
   .guarantee-strip {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 24px;
-    font-size: 13px;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 12px;
     color: var(--muted);
+    flex-wrap: wrap;
+    text-align: center;
   }
 
   /* ── FAQ ────────────────────────────────────────────────────────────── */
@@ -408,10 +425,11 @@
 
   .faq-item {
     border-bottom: 1px solid var(--border);
-    padding: 20px 0;
+    padding: 18px 0;
+    text-align: left;
   }
   .faq-q {
-    font-size: 16px;
+    font-size: clamp(14px, 4vw, 15px);
     font-weight: 500;
     color: var(--ink);
     cursor: pointer;
@@ -431,39 +449,41 @@
   }
   .faq-item.open .faq-q::after { transform: rotate(45deg); }
   .faq-a {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--muted);
     line-height: 1.7;
     max-height: 0;
     overflow: hidden;
     transition: max-height .3s ease, padding .3s;
   }
-  .faq-item.open .faq-a { max-height: 300px; padding-top: 14px; }
+  .faq-item.open .faq-a { max-height: 300px; padding-top: 12px; }
 
   /* ── FINAL CTA ──────────────────────────────────────────────────────── */
   .final-cta {
     background: var(--ink);
     color: var(--white);
     text-align: center;
-    padding: 80px 24px;
+    padding: 64px 20px;
   }
-  .final-cta h2 { color: var(--white); margin-bottom: 16px; }
+  .final-cta h2 { color: var(--white); margin-bottom: 14px; }
   .final-cta h2 em { color: #5DCAA5; }
-  .final-cta .lead { color: rgba(255,255,255,.6); max-width: 520px; margin: 0 auto 40px; }
+  .final-cta .lead { color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 32px; }
+  .final-cta .btn-primary-lg { background: var(--green-mid); }
 
   /* ── FOOTER ────────────────────────────────────────────────────────── */
   footer {
     background: var(--ink);
     border-top: 1px solid rgba(255,255,255,.06);
-    padding: 24px;
+    padding: 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 11px;
     color: rgba(255,255,255,.3);
+    line-height: 1.6;
   }
 
   /* ── ANIMATIONS ─────────────────────────────────────────────────────── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   .hero-inner > * { animation: fadeUp .6s both; }
@@ -477,25 +497,25 @@
     position: fixed;
     bottom: 0; left: 0; right: 0;
     background: var(--green);
-    padding: 14px 24px;
+    padding: 12px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
     z-index: 100;
     transform: translateY(100%);
     transition: transform .3s ease;
     box-shadow: 0 -4px 24px rgba(0,0,0,.15);
   }
   .sticky-bar.visible { transform: translateY(0); }
-  .sticky-text { color: rgba(255,255,255,.85); font-size: 14px; }
-  .sticky-text strong { color: white; }
+  .sticky-text { color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.4; }
+  .sticky-text strong { color: white; display: block; }
   .btn-sticky {
     background: white;
     color: var(--green);
     font-weight: 600;
-    font-size: 14px;
-    padding: 12px 28px;
+    font-size: 13px;
+    padding: 11px 22px;
     border-radius: 6px;
     border: none;
     cursor: pointer;
@@ -503,14 +523,27 @@
     text-decoration: none;
     flex-shrink: 0;
   }
-  @media(max-width:480px){
-    .sticky-bar { flex-direction: column; text-align: center; }
-    .proof-bar { gap: 24px; }
+
+  /* ── MOBILE OVERRIDES ───────────────────────────────────────────────── */
+  @media(max-width: 480px) {
+    section { padding: 48px 16px; }
+    .hero-inner { padding: 48px 16px 44px; }
+    .proof-bar { gap: 14px; padding: 14px 16px; }
+    .proof-item { font-size: 12px; }
+    .proof-item strong { font-size: 13px; }
+    .story-box { padding: 24px 20px; }
+    .price-box { padding: 32px 20px; }
+    .bonus-card { flex-direction: column; gap: 10px; }
+    .bonus-icon { font-size: 24px; }
+    .sticky-bar { flex-direction: row; }
+    .sticky-text { font-size: 12px; }
+    .btn-sticky { font-size: 12px; padding: 10px 16px; }
     .pain-grid { grid-template-columns: 1fr; }
-    .price-main { font-size: 56px; }
-    .story-box { padding: 28px 24px; }
-    .price-box { padding: 36px 24px; }
-    .btn-primary-lg { font-size: 16px; padding: 18px 24px; }
+  }
+
+  @media(max-width: 360px) {
+    .hero h1 { font-size: 26px; }
+    .price-main { font-size: 52px; }
   }
 </style>
 </head>
@@ -526,10 +559,10 @@
     <p class="hero-sub">O guia prático para quem trabalha de carteira assinada, não tem experiência com internet e quer resultado rápido — com menos de 1 hora por dia.</p>
     <div class="hero-cta-block">
       <a href="#preco" class="btn-primary">
-        Quero minha cópia por R$37 <span class="arrow">→</span>
+        Quero minha cópia por R$19,90 <span class="arrow">→</span>
       </a>
       <div class="hero-guarantee">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Acesso imediato após pagamento · 100% digital
       </div>
     </div>
@@ -539,16 +572,16 @@
 <!-- PROOF BAR -->
 <div class="proof-bar">
   <div class="proof-item">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-    <div><strong>25 páginas</strong> direto ao ponto</div>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <div><strong>12 páginas</strong> direto ao ponto</div>
   </div>
   <div class="proof-item">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    <div><strong>40 min</strong> de leitura</div>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <div><strong>25 min</strong> de leitura</div>
   </div>
   <div class="proof-item">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-    <div><strong>7 dias</strong> para ter resultado</div>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    <div><strong>7 dias</strong> para resultado</div>
   </div>
 </div>
 
@@ -558,7 +591,6 @@
     <div class="section-label">Você se identifica?</div>
     <h2>Se você tem CLT,<br><em>isso soa familiar</em></h2>
     <p class="lead">Não é falta de esforço. É que ninguém te ensinou o caminho certo para quem não tem tempo sobrando.</p>
-
     <div class="pain-grid">
       <div class="pain-card">
         <div class="icon">⏰</div>
@@ -604,7 +636,7 @@
       </li>
       <li>
         <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Quer uma renda que funciona mesmo quando você está no trabalho — sem precisar trocar seu tempo por dinheiro a cada hora
+        Quer uma renda que funciona mesmo quando você está no trabalho — sem trocar tempo por dinheiro a cada hora
       </li>
       <li>
         <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -620,16 +652,15 @@
     <div class="section-label">Quem escreveu isso</div>
     <h2>Feito por quem<br><em>viveu na pele</em></h2>
     <p class="lead">Esse guia não foi escrito por um guru que nunca trabalhou de carteira assinada. Foi escrito por quem saiu da linha de produção e construiu renda extra do zero.</p>
-
     <div class="story-box">
       <p>Trabalhei anos em linha de produção numa montadora. Oito horas em pé, mesmo movimento repetido centenas de vezes. Salário certo todo mês — mas sem perspectiva de crescimento real.</p>
       <p>Comecei a estudar renda extra nas minhas horas livres. Errei muito. Perdi dinheiro em estratégias que não funcionavam para quem tem pouco tempo. Até encontrar um modelo simples que funciona com 1 hora por dia e menos de R$300 de investimento inicial.</p>
       <p>Esse guia é o que eu queria ter lido quando comecei. Sem enrolação, sem teoria, sem promessa impossível. Só o caminho prático de quem já fez.</p>
       <div class="story-author">
-        <div class="author-avatar">RE</div>
+        <img src="data:image/jpeg;base64,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" alt="Felipe Dazzi" style="width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #1D9E75;">
         <div>
-          <div class="author-name">Autor — Renda Extra do Zero</div>
-          <div class="author-role">Ex-operador de linha de produção · Criador digital</div>
+          <div class="author-name">Felipe Dazzi</div>
+          <div class="author-role">Operador de linha de produção · Criador digital</div>
         </div>
       </div>
     </div>
@@ -641,7 +672,6 @@
   <div class="container">
     <div class="section-label">O que você vai aprender</div>
     <h2>7 capítulos.<br><em>Tudo que você precisa</em> para começar.</h2>
-
     <div class="chapters">
       <div class="chapter-row">
         <div class="ch-badge">01</div>
@@ -701,30 +731,27 @@
   <div class="container">
     <div class="section-label">Bônus incluídos</div>
     <h2>Mais do que um e-book.<br><em>Um kit completo</em> para começar.</h2>
-
     <div class="bonus-card">
-      <div class="bonus-icon">📋</div>
+      <div class="bonus-icon">✅</div>
       <div>
-        <div class="bonus-title">Checklist de 7 dias — Produto no ar em uma semana</div>
-        <div class="bonus-desc">Tarefa por tarefa, dia por dia. Sem precisar pensar no que fazer a seguir. Só seguir e executar.</div>
+        <div class="bonus-title">Checklist dos 7 dias — Do zero ao produto no ar</div>
+        <div class="bonus-desc">A sequência exata do capítulo 4 transformada em checklist diário. Dia 1 ao dia 7: o que fazer, em qual ordem, sem precisar pensar. Só marcar e executar.</div>
         <div class="bonus-value">Bônus gratuito incluso</div>
       </div>
     </div>
-
     <div class="bonus-card">
-      <div class="bonus-icon">📣</div>
+      <div class="bonus-icon">🎯</div>
       <div>
-        <div class="bonus-title">3 templates de copy para anúncio no Meta Ads</div>
-        <div class="bonus-desc">Os textos prontos que você adapta em 15 minutos e sobe diretamente para sua campanha. Testados no nicho de renda extra.</div>
+        <div class="bonus-title">3 headlines prontas para sua página de vendas</div>
+        <div class="bonus-desc">As 3 estruturas de headline que mais convertem no nicho de renda extra — baseadas no capítulo 6. Você só preenche com seus dados e cola na página. Sem escrever do zero.</div>
         <div class="bonus-value">Bônus gratuito incluso</div>
       </div>
     </div>
-
     <div class="bonus-card">
-      <div class="bonus-icon">🧮</div>
+      <div class="bonus-icon">📊</div>
       <div>
-        <div class="bonus-title">Planilha de controle de resultados</div>
-        <div class="bonus-desc">Acompanhe gasto em anúncio, vendas e lucro dia a dia. Saber os números é o que separa quem escala de quem desiste.</div>
+        <div class="bonus-title">Calculadora de tráfego — Quanto investir para lucrar</div>
+        <div class="bonus-desc">Uma planilha simples onde você coloca o preço do produto e o orçamento diário de anúncio, e ela mostra quantas vendas precisa fazer para lucrar. Direto do capítulo 5.</div>
         <div class="bonus-value">Bônus gratuito incluso</div>
       </div>
     </div>
@@ -736,27 +763,23 @@
   <div class="container">
     <div class="section-label">Investimento</div>
     <h2>Menos do que um<br><em>almoço no shopping</em></h2>
-
     <div class="price-box">
       <div class="price-label">E-book completo + todos os bônus</div>
-      <div class="price-from">De R$97</div>
-      <div class="price-main"><span>R$</span>37</div>
+      <div class="price-from">De R$47</div>
+      <div class="price-main"><span>R$</span>19,90</div>
       <div class="price-sub">Acesso imediato · Pagamento único · Para sempre</div>
-
       <div class="price-includes">
-        <div class="price-line"><span class="dot"></span>E-book Renda Extra do Zero (25 páginas)</div>
+        <div class="price-line"><span class="dot"></span>E-book Renda Extra do Zero (12 páginas)</div>
         <div class="price-line"><span class="dot"></span>Checklist de 7 dias para lançar seu produto</div>
         <div class="price-line"><span class="dot"></span>3 templates de copy para Meta Ads</div>
         <div class="price-line"><span class="dot"></span>Planilha de controle de resultados</div>
         <div class="price-line"><span class="dot"></span>Acesso vitalício — incluindo atualizações</div>
       </div>
-
       <a href="#" class="btn-primary-lg">
-        Quero começar agora por R$37 →
+        Quero começar agora por R$19,90 →
       </a>
-
       <div class="guarantee-strip">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Pagamento seguro · Hotmart · Acesso em menos de 2 minutos
       </div>
     </div>
@@ -768,8 +791,7 @@
   <div class="container">
     <div class="section-label">Perguntas frequentes</div>
     <h2>Respondendo antes<br><em>de você perguntar</em></h2>
-
-    <div style="margin-top: 32px;">
+    <div style="margin-top: 28px; text-align:left;">
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">Funciona para quem não tem experiência nenhuma?</div>
         <div class="faq-a">Sim. O guia foi escrito exatamente para quem está começando do zero. Cada passo é explicado de forma simples, com ferramentas gratuitas que qualquer pessoa consegue usar no celular ou computador.</div>
@@ -796,25 +818,28 @@
 
 <!-- FINAL CTA -->
 <section class="final-cta">
-  <div class="container" style="text-align:center;">
+  <div class="container">
     <div class="section-label" style="color:#5DCAA5;">Última chance</div>
     <h2>A primeira venda<br><em>muda tudo</em></h2>
     <p class="lead">Não pelo dinheiro — pela prova de que funciona. De que você consegue. Esse e-book é o mapa. O passo é seu.</p>
-    <a href="#preco" class="btn-primary-lg" style="margin: 0 auto; max-width: 400px; display: inline-flex; background: var(--green-mid);">
-      Quero minha cópia por R$37 →
+    <a href="#preco" class="btn-primary-lg">
+      Quero minha cópia por R$19,90 →
     </a>
-    <p style="margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.35);">Acesso imediato · Pagamento único · Sem assinatura</p>
+    <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,.35);">Acesso imediato · Pagamento único · Sem assinatura</p>
   </div>
 </section>
 
 <footer>
-  <p>Renda Extra do Zero &mdash; Todos os direitos reservados &middot; Conteúdo educacional e informativo</p>
+  <p>Renda Extra do Zero — Todos os direitos reservados · Conteúdo educacional e informativo</p>
 </footer>
 
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="sticky">
-  <div class="sticky-text"><strong>Renda Extra do Zero</strong> — E-book completo + bônus</div>
-  <a href="#preco" class="btn-sticky">Comprar por R$37 →</a>
+  <div class="sticky-text">
+    <strong>Renda Extra do Zero</strong>
+    E-book completo + bônus
+  </div>
+  <a href="#preco" class="btn-sticky">R$19,90 →</a>
 </div>
 
 <script>
@@ -828,9 +853,8 @@
   const sticky = document.getElementById('sticky');
   const hero = document.querySelector('.hero');
   window.addEventListener('scroll', () => {
-    const heroBottom = hero.getBoundingClientRect().bottom;
-    sticky.classList.toggle('visible', heroBottom < 0);
-  });
+    sticky.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0);
+  }, { passive: true });
 </script>
 </body>
 </html>
