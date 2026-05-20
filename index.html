@@ -167,7 +167,7 @@
     font-size: 13px;
     font-weight: 500;
   }
-  .proof-item strong { color: #fff; font-size: 14px; }
+  .proof-item strong { color: #FFD580; font-size: 14px; }
 
   /* ── SECTIONS ────────────────────────────────────────────────────────── */
   section { padding: 64px 20px; }
@@ -223,7 +223,7 @@
     border-radius: 10px;
     padding: 20px;
   }
-  .pain-card .icon { font-size: 22px; margin-bottom: 8px; }
+  .pain-card .icon { font-size: 22px; margin-bottom: 8px; filter: sepia(1) saturate(3) hue-rotate(5deg); }
   .pain-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
   .pain-card strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 4px; font-size: 14px; }
 
@@ -303,7 +303,7 @@
     gap: 14px;
     transition: border-color .2s, box-shadow .2s;
   }
-  .chapter-row:hover { border-color: var(--green-mid); box-shadow: 0 2px 12px rgba(15,110,86,.08); }
+  .chapter-row:hover { border-color: var(--amber); box-shadow: 0 2px 12px rgba(212,130,10,.10); }
   .ch-badge {
     width: 32px; height: 32px; border-radius: 8px;
     background: var(--green-light);
@@ -352,7 +352,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--green), var(--green-mid));
+    background: linear-gradient(90deg, var(--green), var(--green-mid), var(--amber));
   }
 
   .price-label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
@@ -442,7 +442,7 @@
   .faq-q::after {
     content: '+';
     font-size: 22px;
-    color: var(--green-mid);
+    color: var(--amber);
     flex-shrink: 0;
     transition: transform .2s;
     font-weight: 300;
@@ -559,10 +559,10 @@
     <p class="hero-sub">O guia prático para quem trabalha de carteira assinada, não tem experiência com internet e quer resultado rápido — com menos de 1 hora por dia.</p>
     <div class="hero-cta-block">
       <a href="#preco" class="btn-primary">
-        Quero minha cópia por R$19,90 <span class="arrow">→</span>
+        Quero minha cópia
       </a>
       <div class="hero-guarantee">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Acesso imediato após pagamento · 100% digital
       </div>
     </div>
@@ -761,13 +761,14 @@
 <!-- PRICE -->
 <section class="price-section" id="preco">
   <div class="container">
-    <div class="section-label">Investimento</div>
+    <div class="section-label" style="color:var(--amber);">Investimento</div>
     <h2>Menos do que um<br><em>almoço no shopping</em></h2>
     <div class="price-box">
       <div class="price-label">E-book completo + todos os bônus</div>
-      <div class="price-from">De R$47</div>
+      <div class="price-from" style="color:var(--amber);text-decoration:line-through;font-weight:500;">De R$47</div>
       <div class="price-main"><span>R$</span>19,90</div>
-      <div class="price-sub">Acesso imediato · Pagamento único · Para sempre</div>
+      <div style="width:40px;height:3px;background:var(--amber);border-radius:99px;margin:8px auto 0;"></div>
+      <div class="price-sub" style="margin-top:12px;">Acesso imediato · Pagamento único · Para sempre</div>
       <div class="price-includes">
         <div class="price-line"><span class="dot"></span>E-book Renda Extra do Zero (12 páginas)</div>
         <div class="price-line"><span class="dot"></span>Checklist de 7 dias para lançar seu produto</div>
@@ -775,11 +776,11 @@
         <div class="price-line"><span class="dot"></span>Planilha de controle de resultados</div>
         <div class="price-line"><span class="dot"></span>Acesso vitalício — incluindo atualizações</div>
       </div>
-      <a href="#" class="btn-primary-lg">
+      <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-primary-lg">
         Quero começar agora por R$19,90 →
       </a>
-      <div class="guarantee-strip">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="guarantee-strip" style="color:var(--amber);">
+        <svg width="14" height="14" style="stroke:var(--amber);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Pagamento seguro · Hotmart · Acesso em menos de 2 minutos
       </div>
     </div>
@@ -789,7 +790,7 @@
 <!-- FAQ -->
 <section class="faq-section">
   <div class="container">
-    <div class="section-label">Perguntas frequentes</div>
+    <div class="section-label" style="color:var(--amber);">Perguntas frequentes</div>
     <h2>Respondendo antes<br><em>de você perguntar</em></h2>
     <div style="margin-top: 28px; text-align:left;">
       <div class="faq-item">
@@ -822,7 +823,7 @@
     <div class="section-label" style="color:#5DCAA5;">Última chance</div>
     <h2>A primeira venda<br><em>muda tudo</em></h2>
     <p class="lead">Não pelo dinheiro — pela prova de que funciona. De que você consegue. Esse e-book é o mapa. O passo é seu.</p>
-    <a href="#preco" class="btn-primary-lg">
+    <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-primary-lg">
       Quero minha cópia por R$19,90 →
     </a>
     <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,.35);">Acesso imediato · Pagamento único · Sem assinatura</p>
@@ -839,7 +840,7 @@
     <strong>Renda Extra do Zero</strong>
     E-book completo + bônus
   </div>
-  <a href="#preco" class="btn-sticky">R$19,90 →</a>
+  <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-sticky">R$19,90 →</a>
 </div>
 
 <script>
