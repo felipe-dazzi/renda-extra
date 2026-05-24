@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-book Grátis — 15 Formas de Renda Extra para Começar Hoje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:       #0F6E56;
+    --green-mid:   #1D9E75;
+    --amber:       #D4820A;
+    --ink:         #12211C;
+    --white:       #FFFFFF;
+    --red:         #DC2626;
+    --serif:       'DM Serif Display', Georgia, serif;
+    --sans:        'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--ink);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 85% 10%, rgba(29,158,117,.15) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 60% at 5% 90%, rgba(15,110,86,.20) 0%, transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── WRAPPER ─────────────────────────────────────────── */
+  .wrap {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+  }
+
+  /* ── BADGE ───────────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(29,158,117,.15);
+    border: 1px solid rgba(29,158,117,.35);
+    color: #5DCAA5;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 99px;
+    margin-bottom: 28px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #5DCAA5;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  /* ── HEADLINE ────────────────────────────────────────── */
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(26px, 7vw, 42px);
+    line-height: 1.13;
+    color: var(--white);
+    margin-bottom: 16px;
+    letter-spacing: -.02em;
+  }
+  h1 em { font-style: italic; color: #5DCAA5; }
+
+  .sub {
+    font-size: clamp(14px, 4vw, 16px);
+    color: rgba(255,255,255,.6);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 420px;
+    margin: 0 auto 32px;
+  }
+
+  /* ── EBOOK PREVIEW ───────────────────────────────────── */
+  .ebook-preview {
+    background: linear-gradient(135deg, #1a3a2e 0%, #0d2318 100%);
+    border: 1px solid rgba(29,158,117,.25);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+  }
+  .ebook-icon {
+    width: 52px; height: 52px;
+    border-radius: 8px;
+    background: var(--green-mid);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .ebook-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--white);
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .ebook-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+  }
+  .ebook-free {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: rgba(29,158,117,.2);
+    border: 1px solid rgba(29,158,117,.4);
+    color: #5DCAA5;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 99px;
+  }
+
+  /* ── FORM CARD ───────────────────────────────────────── */
+  .form-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    padding: 32px 28px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(8px);
+  }
+
+  .form-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,.5);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .field {
+    margin-bottom: 14px;
+    text-align: left;
+  }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,.55);
+    margin-bottom: 6px;
+    letter-spacing: .03em;
+  }
+  .field input {
+    width: 100%;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 8px;
+    padding: 13px 16px;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--white);
+    outline: none;
+    transition: border-color .2s, background .2s;
+    -webkit-appearance: none;
+  }
+  .field input::placeholder { color: rgba(255,255,255,.25); }
+  .field input:focus {
+    border-color: var(--green-mid);
+    background: rgba(29,158,117,.08);
+  }
+  .field input.error {
+    border-color: var(--red);
+    background: rgba(220,38,38,.06);
+  }
+  .field-error {
+    font-size: 11px;
+    color: #F87171;
+    margin-top: 5px;
+    display: none;
+  }
+  .field.has-error .field-error { display: block; }
+
+  /* ── BUTTON ──────────────────────────────────────────── */
+  .btn-submit {
+    width: 100%;
+    background: var(--green-mid);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 17px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background .2s, transform .15s, opacity .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: .01em;
+  }
+  .btn-submit:hover:not(:disabled) { background: var(--green); transform: translateY(-1px); }
+  .btn-submit:active:not(:disabled) { transform: translateY(0); }
+  .btn-submit:disabled { opacity: .65; cursor: not-allowed; }
+
+  .btn-submit .spinner {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    display: none;
+  }
+  .btn-submit.loading .btn-text { display: none; }
+  .btn-submit.loading .spinner { display: block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── GLOBAL ERROR ────────────────────────────────────── */
+  .global-error {
+    background: rgba(220,38,38,.12);
+    border: 1px solid rgba(220,38,38,.3);
+    border-radius: 8px;
+    color: #FCA5A5;
+    font-size: 13px;
+    padding: 12px 14px;
+    margin-top: 14px;
+    display: none;
+    text-align: left;
+  }
+
+  /* ── TRUST ───────────────────────────────────────────── */
+  .trust {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,.35);
+  }
+
+  /* ── SUCCESS STATE ───────────────────────────────────── */
+  #success-state {
+    display: none;
+    animation: fadeUp .5s both;
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+
+  .success-icon {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: rgba(29,158,117,.15);
+    border: 2px solid rgba(29,158,117,.4);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 30px;
+  }
+  .success-title {
+    font-family: var(--serif);
+    font-size: clamp(24px, 6vw, 34px);
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .success-title em { font-style: italic; color: #5DCAA5; }
+  .success-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 380px;
+    margin: 0 auto 28px;
+  }
+  .success-box {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .success-box strong { color: rgba(255,255,255,.85); display: block; margin-bottom: 4px; }
+
+  .btn-offer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--amber);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    letter-spacing: .01em;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  .btn-offer:hover { background: #b56d08; transform: translateY(-1px); }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 32px;
+    font-size: 11px;
+    color: rgba(255,255,255,.2);
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVO ──────────────────────────────────────── */
+  @media (max-width: 480px) {
+    body { padding: 28px 16px; }
+    .form-card { padding: 24px 20px; }
+    .ebook-preview { flex-wrap: wrap; }
+    .ebook-free { margin-left: 0; }
+  }
+
+  @media (min-width: 768px) {
+    .wrap { max-width: 500px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- FORMULÁRIO DE CAPTURA                                 -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="wrap" id="capture-state">
+
+  <div class="badge">
+    <div class="badge-dot"></div>
+    100% gratuito · Acesso imediato
+  </div>
+
+  <h1>Baixe grátis:<br><em>15 Formas de Renda Extra</em><br>para Começar Hoje</h1>
+  <p class="sub">Um guia direto com 15 formas reais de ganhar dinheiro fora do salário — para quem tem CLT e pouco tempo.</p>
+
+  <div class="ebook-preview">
+    <div class="ebook-icon">📘</div>
+    <div>
+      <div class="ebook-title">15 Formas de Renda Extra para Começar Hoje</div>
+      <div class="ebook-meta">PDF · Entrega por e-mail · Imediato</div>
+    </div>
+    <div class="ebook-free">Grátis</div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">Onde envio o e-book?</div>
+
+    <form id="lead-form" novalidate>
+      <div class="field" id="field-nome">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name">
+        <div class="field-error">Por favor, informe seu nome.</div>
+      </div>
+
+      <div class="field" id="field-email">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email">
+        <div class="field-error">Informe um e-mail válido.</div>
+      </div>
+
+      <div class="field" id="field-whatsapp">
+        <label for="whatsapp">WhatsApp</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" autocomplete="tel">
+        <div class="field-error">Informe um número de WhatsApp válido.</div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="btn-submit">
+        <span class="btn-text">Quero meu e-book grátis →</span>
+        <div class="spinner"></div>
+      </button>
+
+      <div class="global-error" id="global-error"></div>
+    </form>
+  </div>
+
+  <div class="trust">
+    <div class="trust-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Sem spam
+    </div>
+    <div class="trust-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Dados protegidos
+    </div>
+    <div class="trust-item">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Cancele quando quiser
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ESTADO DE SUCESSO                                     -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="wrap" id="success-state">
+  <div class="success-icon">✅</div>
+  <h2 class="success-title">Enviado!<br><em>Verifique seu e-mail</em></h2>
+  <p class="success-sub">O e-book <strong>15 Formas de Renda Extra</strong> foi enviado para o seu e-mail. Verifique a caixa de entrada (e spam, só por garantia).</p>
+
+  <div class="success-box">
+    <strong>Enquanto espera o e-mail...</strong>
+    Você sabia que o <em>Renda Extra do Zero</em> — o guia completo com 7 capítulos, checklist de 7 dias e mais 3 bônus — está por apenas R$19,90 hoje?
+  </div>
+
+  <a href="index.html" class="btn-offer">
+    Ver o guia completo por R$19,90 →
+  </a>
+</div>
+
+<footer>
+  Renda Extra do Zero · Seus dados estão protegidos e não serão compartilhados.
+</footer>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SUPABASE + N8N INTEGRATION                            -->
+<!-- ══════════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  // ─── CONFIGURAÇÕES ──────────────────────────────────────
+  // Substitua pelos seus valores reais (veja instruções abaixo)
+
+  const SUPABASE_URL     = 'SEU_SUPABASE_URL';        // ex: https://xyzxyz.supabase.co
+  const SUPABASE_ANON_KEY = 'SUA_SUPABASE_ANON_KEY';  // chave "anon public" do Supabase
+  const N8N_WEBHOOK_URL  = 'SUA_URL_WEBHOOK_N8N';     // ex: https://seu-n8n.com/webhook/abc123
+
+  // ─── INIT ────────────────────────────────────────────────
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // ─── MÁSCARA DE TELEFONE ─────────────────────────────────
+  const phoneInput = document.getElementById('whatsapp');
+  phoneInput.addEventListener('input', () => {
+    let v = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6)      v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+    else if (v.length > 0) v = `(${v}`;
+    phoneInput.value = v;
+  });
+
+  // ─── VALIDAÇÃO ────────────────────────────────────────────
+  function validate() {
+    let valid = true;
+
+    const nome  = document.getElementById('nome');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('whatsapp');
+
+    // Reset
+    ['nome','email','whatsapp'].forEach(id => {
+      const field = document.getElementById(`field-${id}`);
+      const input = document.getElementById(id);
+      field.classList.remove('has-error');
+      input.classList.remove('error');
+    });
+
+    if (!nome.value.trim() || nome.value.trim().length < 2) {
+      document.getElementById('field-nome').classList.add('has-error');
+      nome.classList.add('error');
+      valid = false;
+    }
+
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(email.value.trim())) {
+      document.getElementById('field-email').classList.add('has-error');
+      email.classList.add('error');
+      valid = false;
+    }
+
+    const digits = phone.value.replace(/\D/g, '');
+    if (digits.length < 10) {
+      document.getElementById('field-whatsapp').classList.add('has-error');
+      phone.classList.add('error');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  // ─── SUBMIT ───────────────────────────────────────────────
+  document.getElementById('lead-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    const btn = document.getElementById('btn-submit');
+    const globalError = document.getElementById('global-error');
+    globalError.style.display = 'none';
+
+    const payload = {
+      nome:      document.getElementById('nome').value.trim(),
+      email:     document.getElementById('email').value.trim().toLowerCase(),
+      whatsapp:  document.getElementById('whatsapp').value.replace(/\D/g, ''),
+      fonte:     'captura-renda-extra',
+      criado_em: new Date().toISOString(),
+    };
+
+    btn.disabled = true;
+    btn.classList.add('loading');
+
+    try {
+      // 1. Salva no Supabase
+      const { error: dbError } = await db
+        .from('leads')
+        .insert([payload]);
+
+      if (dbError) throw new Error(`Supabase: ${dbError.message}`);
+
+      // 2. Dispara webhook n8n (envia e-mail com PDF)
+      await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      // 3. Mostra sucesso
+      document.getElementById('capture-state').style.display = 'none';
+      const success = document.getElementById('success-state');
+      success.style.display = 'block';
+
+    } catch (err) {
+      console.error(err);
+      globalError.textContent = 'Algo deu errado. Tente novamente em instantes.';
+      globalError.style.display = 'block';
+      btn.disabled = false;
+      btn.classList.remove('loading');
+    }
+  });
+</script>
+</body>
+</html>
