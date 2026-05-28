@@ -3,25 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Renda Extra do Zero — Para Quem Tem CLT e Quer Mudar de Vida</title>
+<title>Renda Extra do Zero — A Jornada CLT → Liberdade</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --green:       #0F6E56;
     --green-mid:   #1D9E75;
-    --green-light: #E1F5EE;
-    --green-pale:  #F2FBF7;
+    --green-lt:    #22c55e;
     --amber:       #D4820A;
-    --amber-light: #FEF3DC;
-    --ink:         #12211C;
-    --ink-mid:     #2D4A40;
-    --muted:       #6B8A7E;
-    --border:      #D5E8E0;
+    --ink:         #0a0f0d;
+    --card:        #0f1a16;
+    --border:      rgba(29,158,117,.15);
     --white:       #FFFFFF;
-    --off-white:   #F7FCF9;
     --serif:       'DM Serif Display', Georgia, serif;
     --sans:        'DM Sans', sans-serif;
   }
@@ -30,152 +26,128 @@
 
   body {
     font-family: var(--sans);
-    background: var(--off-white);
-    color: var(--ink);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ── HERO ───────────────────────────────────────────────────────────── */
-  .hero {
     background: var(--ink);
     color: var(--white);
-    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
     position: relative;
-    overflow: hidden;
   }
 
-  .hero::before {
+  body::before {
     content: '';
-    position: absolute;
+    position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(29,158,117,.18) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(15,110,86,.22) 0%, transparent 60%);
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(29,158,117,.08) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 80% 100%, rgba(15,110,86,.12) 0%, transparent 55%);
     pointer-events: none;
+    z-index: 0;
   }
 
-  .hero-inner {
-    max-width: 680px;
+  .wrap { position: relative; z-index: 1; width: 100%; max-width: 720px; padding: 0 20px; }
+
+  /* ── NAV ────────────────────────────────────────────── */
+  nav {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 20px;
     margin: 0 auto;
-    padding: 60px 20px 56px;
-    position: relative;
-    z-index: 1;
-    text-align: center;
   }
+  .logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--white);
+  }
+  .logo span { color: var(--green-mid); }
+  .nav-cta {
+    padding: 8px 20px;
+    background: var(--green-mid);
+    color: var(--white);
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--green); }
 
-  .hero-badge {
+  /* ── HERO ───────────────────────────────────────────── */
+  .hero {
+    text-align: center;
+    padding: 60px 0 40px;
+  }
+  .badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: rgba(29,158,117,.15);
     border: 1px solid rgba(29,158,117,.3);
-    color: #5DCAA5;
+    color: var(--green-lt);
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .08em;
+    font-weight: 600;
+    letter-spacing: .1em;
     text-transform: uppercase;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 99px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
-
-  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: #5DCAA5; animation: pulse 2s infinite; flex-shrink:0; }
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green-lt);
+    animation: pulse 2s infinite;
+  }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(28px, 7vw, 52px);
-    line-height: 1.12;
-    color: var(--white);
-    margin-bottom: 20px;
-    letter-spacing: -.02em;
+    font-size: clamp(32px, 7vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -.03em;
   }
-
-  .hero h1 em {
-    font-style: italic;
-    color: #5DCAA5;
-  }
-
-  .hero-sub {
-    font-size: clamp(15px, 4vw, 18px);
-    color: rgba(255,255,255,.65);
-    max-width: 520px;
-    margin: 0 auto 40px;
+  .hero h1 em { font-style: italic; color: var(--green-lt); }
+  .hero p {
+    font-size: clamp(15px, 3vw, 17px);
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 32px;
     font-weight: 300;
-    line-height: 1.65;
   }
-
-  .hero-cta-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .btn-primary {
+  .hero .btn-primary {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     background: var(--green-mid);
     color: var(--white);
-    font-family: var(--sans);
-    font-size: clamp(15px, 4vw, 16px);
+    font-size: 17px;
     font-weight: 600;
-    padding: 18px 32px;
-    border-radius: 8px;
+    padding: 18px 40px;
+    border-radius: 12px;
     text-decoration: none;
-    border: none;
-    cursor: pointer;
     transition: background .2s, transform .15s;
-    letter-spacing: .01em;
-    width: 100%;
-    max-width: 400px;
+    margin-bottom: 16px;
   }
-  .btn-primary:hover { background: var(--green); transform: translateY(-1px); }
-  .btn-primary:active { transform: translateY(0); }
-
-  .btn-primary .arrow { font-size: 18px; transition: transform .2s; }
-  .btn-primary:hover .arrow { transform: translateX(3px); }
-
-  .hero-guarantee {
+  .hero .btn-primary:hover { background: var(--green); transform: translateY(-2px); }
+  .hero .meta {
     font-size: 12px;
-    color: rgba(255,255,255,.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
+    color: rgba(255,255,255,.3);
   }
-  .hero-guarantee svg { flex-shrink: 0; }
 
-  /* ── SOCIAL PROOF BAR ───────────────────────────────────────────────── */
-  .proof-bar {
-    background: var(--green);
-    padding: 16px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
+  /* ── SECTIONS ───────────────────────────────────────── */
+  section {
+    padding: 60px 0;
+    width: 100%;
+    max-width: 720px;
   }
-  .proof-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,.9);
-    font-size: 13px;
-    font-weight: 500;
-  }
-  .proof-item strong { color: #FFD580; font-size: 14px; }
-
-  /* ── SECTIONS ────────────────────────────────────────────────────────── */
-  section { padding: 64px 20px; }
-  .container {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-  }
+  section + section { border-top: 1px solid var(--border); }
 
   .section-label {
     font-size: 11px;
@@ -183,688 +155,500 @@
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--green-mid);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
-
-  h2 {
+  section h2 {
     font-family: var(--serif);
-    font-size: clamp(24px, 5vw, 38px);
-    line-height: 1.18;
-    color: var(--ink);
-    margin-bottom: 16px;
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.15;
+    margin-bottom: 20px;
     letter-spacing: -.02em;
   }
-  h2 em { font-style: italic; color: var(--green); }
-
-  .lead {
-    font-size: clamp(15px, 4vw, 17px);
-    color: var(--ink-mid);
+  section h2 em { font-style: italic; color: var(--green-lt); }
+  section > p {
+    font-size: 15px;
+    color: rgba(255,255,255,.5);
     line-height: 1.7;
-    margin-bottom: 16px;
+    max-width: 520px;
+    margin-bottom: 32px;
     font-weight: 300;
-    text-align: center;
   }
 
-  /* ── PAIN SECTION ────────────────────────────────────────────────────── */
-  .pain-section { background: var(--white); }
-
-  .pain-grid {
+  /* ── DORES ──────────────────────────────────────────── */
+  .dores-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 36px;
-    text-align: left;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
   }
-  @media(max-width: 480px){ .pain-grid { grid-template-columns: 1fr; } }
-
-  .pain-card {
-    background: var(--off-white);
+  .dor-card {
+    background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-  }
-  .pain-card .icon { font-size: 22px; margin-bottom: 8px; filter: sepia(1) saturate(3) hue-rotate(5deg); }
-  .pain-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-  .pain-card strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 4px; font-size: 14px; }
-
-  /* ── FOR YOU ─────────────────────────────────────────────────────────── */
-  .for-you { background: var(--green-pale); }
-
-  .for-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
-  .for-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: clamp(14px, 4vw, 15px);
-    color: var(--ink-mid);
-    line-height: 1.55;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px 16px;
-  }
-  .check-icon {
-    width: 22px; height: 22px;
-    background: var(--green-mid);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .check-icon svg { width: 12px; height: 12px; }
-
-  /* ── STORY ──────────────────────────────────────────────────────────── */
-  .story-section { background: var(--white); }
-
-  .story-box {
-    background: var(--ink);
-    color: rgba(255,255,255,.85);
     border-radius: 12px;
-    padding: 32px 28px;
-    position: relative;
-    overflow: hidden;
-    margin-top: 32px;
-    text-align: left;
+    padding: 24px;
   }
-  .story-box::before {
-    content: '\201C';
-    font-family: var(--serif);
-    font-size: 100px;
-    color: rgba(29,158,117,.2);
-    position: absolute;
-    top: -10px; left: 16px;
-    line-height: 1;
-    pointer-events: none;
-  }
-  .story-box p { font-size: clamp(14px, 4vw, 16px); line-height: 1.75; margin-bottom: 14px; position: relative; z-index: 1; }
-  .story-box p:last-child { margin-bottom: 0; }
-  .story-author { margin-top: 20px; display: flex; align-items: center; gap: 12px; position: relative; z-index:1; }
-  .author-avatar {
-    width: 42px; height: 42px; border-radius: 50%;
-    background: var(--green-mid);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 15px; color: white;
-    flex-shrink: 0;
-  }
-  .author-name { font-weight: 500; color: #fff; font-size: 14px; }
-  .author-role { font-size: 12px; color: rgba(255,255,255,.5); }
-
-  /* ── CONTENT ────────────────────────────────────────────────────────── */
-  .content-section { background: var(--off-white); }
-
-  .chapters { margin-top: 32px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
-  .chapter-row {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 18px;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .chapter-row:hover { border-color: var(--amber); box-shadow: 0 2px 12px rgba(212,130,10,.10); }
-  .ch-badge {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: var(--green-light);
-    color: var(--green);
-    font-size: 11px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-  }
-  .ch-info strong { display: block; font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
-  .ch-info span { font-size: 12px; color: var(--muted); }
-
-  /* ── BONUSES ────────────────────────────────────────────────────────── */
-  .bonus-section { background: var(--amber-light); }
-  .bonus-section h2 em { color: var(--amber); }
-
-  .bonus-card {
-    background: var(--white);
-    border: 1px solid #F0D9A0;
-    border-radius: 10px;
-    padding: 20px;
-    display: flex;
-    gap: 14px;
-    margin-top: 16px;
-    text-align: left;
-  }
-  .bonus-icon { font-size: 28px; flex-shrink: 0; }
-  .bonus-title { font-weight: 600; font-size: 14px; color: var(--ink); margin-bottom: 4px; }
-  .bonus-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-  .bonus-value { font-size: 11px; color: var(--amber); font-weight: 600; margin-top: 6px; }
-
-  /* ── PRICE ──────────────────────────────────────────────────────────── */
-  .price-section { background: var(--white); }
-
-  .price-box {
-    background: var(--off-white);
-    border: 2px solid var(--border);
-    border-radius: 16px;
-    padding: 40px 28px;
-    text-align: center;
-    margin-top: 32px;
-    position: relative;
-    overflow: hidden;
-  }
-  .price-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--green), var(--green-mid), var(--amber));
-  }
-
-  .price-label { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
-  .price-from { font-size: 15px; color: var(--muted); text-decoration: line-through; margin-bottom: 2px; }
-  .price-main {
-    font-family: var(--serif);
-    font-size: clamp(56px, 14vw, 72px);
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .price-main span { font-size: 24px; vertical-align: super; }
-  .price-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
-
-  .price-includes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: left;
-    max-width: 360px;
-    margin: 0 auto 28px;
-  }
-  .price-line {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--ink-mid);
-  }
-  .price-line .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-mid); flex-shrink: 0; }
-
-  .btn-primary-lg {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background: var(--green-mid);
-    color: var(--white);
-    font-family: var(--sans);
-    font-size: clamp(16px, 4vw, 18px);
+  .dor-icon { font-size: 28px; margin-bottom: 10px; }
+  .dor-card h3 {
+    font-size: 15px;
     font-weight: 600;
-    padding: 20px 32px;
-    border-radius: 10px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    letter-spacing: .01em;
-  }
-  .btn-primary-lg:hover { background: var(--green); transform: translateY(-1px); }
-  .btn-primary-lg:active { transform: translateY(0); }
-
-  .guarantee-strip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
-    font-size: 12px;
-    color: var(--muted);
-    flex-wrap: wrap;
-    text-align: center;
-  }
-
-  /* ── FAQ ────────────────────────────────────────────────────────────── */
-  .faq-section { background: var(--green-pale); }
-
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-    text-align: left;
-  }
-  .faq-q {
-    font-size: clamp(14px, 4vw, 15px);
-    font-weight: 500;
-    color: var(--ink);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    user-select: none;
-  }
-  .faq-q::after {
-    content: '+';
-    font-size: 22px;
-    color: var(--amber);
-    flex-shrink: 0;
-    transition: transform .2s;
-    font-weight: 300;
-  }
-  .faq-item.open .faq-q::after { transform: rotate(45deg); }
-  .faq-a {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .3s ease, padding .3s;
-  }
-  .faq-item.open .faq-a { max-height: 300px; padding-top: 12px; }
-
-  /* ── FINAL CTA ──────────────────────────────────────────────────────── */
-  .final-cta {
-    background: var(--ink);
+    margin-bottom: 6px;
     color: var(--white);
-    text-align: center;
-    padding: 64px 20px;
   }
-  .final-cta h2 { color: var(--white); margin-bottom: 14px; }
-  .final-cta h2 em { color: #5DCAA5; }
-  .final-cta .lead { color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 32px; }
-  .final-cta .btn-primary-lg { background: var(--green-mid); }
-
-  /* ── FOOTER ────────────────────────────────────────────────────────── */
-  footer {
-    background: var(--ink);
-    border-top: 1px solid rgba(255,255,255,.06);
-    padding: 20px;
-    text-align: center;
-    font-size: 11px;
-    color: rgba(255,255,255,.3);
+  .dor-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,.45);
     line-height: 1.6;
   }
 
-  /* ── ANIMATIONS ─────────────────────────────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .hero-inner > * { animation: fadeUp .6s both; }
-  .hero-inner > *:nth-child(1) { animation-delay: .05s; }
-  .hero-inner > *:nth-child(2) { animation-delay: .15s; }
-  .hero-inner > *:nth-child(3) { animation-delay: .25s; }
-  .hero-inner > *:nth-child(4) { animation-delay: .35s; }
-
-  /* ── STICKY CTA ─────────────────────────────────────────────────────── */
-  .sticky-bar {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--green);
-    padding: 12px 20px;
+  /* ── AUTHOR ─────────────────────────────────────────── */
+  .author-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    z-index: 100;
-    transform: translateY(100%);
-    transition: transform .3s ease;
-    box-shadow: 0 -4px 24px rgba(0,0,0,.15);
+    gap: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
   }
-  .sticky-bar.visible { transform: translateY(0); }
-  .sticky-text { color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.4; }
-  .sticky-text strong { color: white; display: block; }
-  .btn-sticky {
-    background: white;
-    color: var(--green);
-    font-weight: 600;
-    font-size: 13px;
-    padding: 11px 22px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    white-space: nowrap;
-    text-decoration: none;
+  .author-avatar {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
     flex-shrink: 0;
   }
-
-  /* ── MOBILE OVERRIDES ───────────────────────────────────────────────── */
-  @media(max-width: 480px) {
-    section { padding: 48px 16px; }
-    .hero-inner { padding: 48px 16px 44px; }
-    .proof-bar { gap: 14px; padding: 14px 16px; }
-    .proof-item { font-size: 12px; }
-    .proof-item strong { font-size: 13px; }
-    .story-box { padding: 24px 20px; }
-    .price-box { padding: 32px 20px; }
-    .bonus-card { flex-direction: column; gap: 10px; }
-    .bonus-icon { font-size: 24px; }
-    .sticky-bar { flex-direction: row; }
-    .sticky-text { font-size: 12px; }
-    .btn-sticky { font-size: 12px; padding: 10px 16px; }
-    .pain-grid { grid-template-columns: 1fr; }
+  .author-info h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .author-info .role {
+    font-size: 13px;
+    color: var(--green-lt);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .author-info p {
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    line-height: 1.7;
   }
 
-  @media(max-width: 360px) {
-    .hero h1 { font-size: 26px; }
-    .price-main { font-size: 52px; }
+  @media (max-width: 500px) {
+    .author-card { flex-direction: column; text-align: center; }
+  }
+
+  /* ── CAPÍTULOS ──────────────────────────────────────── */
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .cap-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .cap-num {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--green-mid);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .cap-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .cap-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+    line-height: 1.6;
+  }
+
+  /* ── BÔNUS ──────────────────────────────────────────── */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+  }
+  .bonus-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .bonus-icon { font-size: 32px; margin-bottom: 10px; }
+  .bonus-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .bonus-card p {
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+    line-height: 1.6;
+  }
+
+  /* ── PRICE ──────────────────────────────────────────── */
+  .price-section {
+    text-align: center;
+    padding: 40px;
+    background: var(--card);
+    border: 2px solid var(--green-mid);
+    border-radius: 20px;
+  }
+  .price-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 12px;
+  }
+  .price-old {
+    font-size: 20px;
+    color: rgba(255,255,255,.3);
+    text-decoration: line-through;
+  }
+  .price-current {
+    font-family: var(--serif);
+    font-size: 56px;
+    color: var(--white);
+    line-height: 1;
+    margin: 8px 0 12px;
+  }
+  .price-current small { font-size: 24px; opacity: .5; }
+  .price-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 28px;
+  }
+  .btn-buy {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--green-mid);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 20px 48px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    margin-bottom: 20px;
+  }
+  .btn-buy:hover { background: var(--green); transform: translateY(-2px); }
+  .price-includes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .price-includes li {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── FAQ ────────────────────────────────────────────── */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  .faq-item:last-child { border: none; }
+  .faq-q {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--white);
+  }
+  .faq-a {
+    font-size: 13px;
+    color: rgba(255,255,255,.45);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────────── */
+  footer {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 11px;
+    color: rgba(255,255,255,.2);
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 500px) {
+    .hero { padding: 40px 0 24px; }
+    section { padding: 40px 0; }
+    .price-section { padding: 28px 20px; }
+    .price-current { font-size: 42px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <span></span> E-book — Acesso imediato
-    </div>
-    <h1>Como criar sua primeira<br><em>renda extra online</em><br>sem largar o emprego</h1>
-    <p class="hero-sub">O guia prático para quem trabalha de carteira assinada, não tem experiência com internet e quer resultado rápido — com menos de 1 hora por dia.</p>
-    <div class="hero-cta-block">
-      <a href="#preco" class="btn-primary">
-        Quero minha cópia
-      </a>
-      <div class="hero-guarantee">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Acesso imediato após pagamento · 100% digital
-      </div>
-    </div>
-  </div>
-</section>
+<nav>
+  <div class="logo">Jornada<span>.</span></div>
+  <a href="#preco" class="nav-cta">Quero minha cópia</a>
+</nav>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-  <div class="proof-item">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-    <div><strong>12 páginas</strong> direto ao ponto</div>
+<div class="wrap">
+
+<!-- ═══ HERO ════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="badge">
+    <div class="badge-dot"></div>
+    E-book — Acesso imediato
   </div>
-  <div class="proof-item">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    <div><strong>25 min</strong> de leitura</div>
+  <h1>O mapa que usei pra<br>sair do <em>CLT</em> rumo à<br><em>liberdade</em></h1>
+  <p>
+    Não é mais um guia genérico de renda extra. É o passo a passo real que EU usei pra criar meu primeiro produto digital em 7 dias — enquanto trabalhava 8h por dia.
+  </p>
+  <a href="#preco" class="btn-primary">📖 Quero minha cópia →</a>
+  <div class="meta">Acesso imediato após pagamento · 100% digital</div>
+</div>
+
+<div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:20px 0 40px;border-bottom:1px solid var(--border);">
+  <div style="text-align:center;">
+    <div style="font-family:var(--serif);font-size:28px;color:var(--green-mid);">12</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.4);">páginas direto ao ponto</div>
   </div>
-  <div class="proof-item">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-    <div><strong>7 dias</strong> para resultado</div>
+  <div style="text-align:center;">
+    <div style="font-family:var(--serif);font-size:28px;color:var(--green-mid);">25</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.4);">minutos de leitura</div>
+  </div>
+  <div style="text-align:center;">
+    <div style="font-family:var(--serif);font-size:28px;color:var(--green-mid);">7</div>
+    <div style="font-size:12px;color:rgba(255,255,255,.4);">dias pra resultado</div>
   </div>
 </div>
 
-<!-- PAIN -->
-<section class="pain-section">
-  <div class="container">
-    <div class="section-label">Você se identifica?</div>
-    <h2>Se você tem CLT,<br><em>isso soa familiar</em></h2>
-    <p class="lead">Não é falta de esforço. É que ninguém te ensinou o caminho certo para quem não tem tempo sobrando.</p>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <div class="icon">⏰</div>
-        <strong>Sem tempo depois do trabalho</strong>
-        <p>Turno de 8 horas e quando chega em casa só quer descansar. A sensação de que não sobra tempo para nada.</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">💸</div>
-        <strong>Salário que não cresce</strong>
-        <p>Reajuste abaixo da inflação todo ano. Contas aumentando, salário parado. Sensação de andar para trás.</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">😕</div>
-        <strong>Já tentou e não funcionou</strong>
-        <p>Tentou vender algo, investiu tempo, não deu resultado. Ficou na dúvida se é possível mesmo para você.</p>
-      </div>
-      <div class="pain-card">
-        <div class="icon">🌀</div>
-        <strong>Não sabe por onde começar</strong>
-        <p>Tem muita informação na internet, cada um fala uma coisa diferente. Paralisia por excesso de opções.</p>
-      </div>
+<!-- ═══ DORES ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">VOCÊ SE IDENTIFICA?</div>
+  <h2>Se você tem CLT,<br><em>isso soa familiar</em></h2>
+  <p>Não é falta de esforço. É que ninguém te ensinou o caminho certo pra quem não tem tempo sobrando.</p>
+
+  <div class="dores-grid">
+    <div class="dor-card">
+      <div class="dor-icon">⏰</div>
+      <h3>Sem tempo depois do trabalho</h3>
+      <p>Turno de 8h e quando chega em casa só quer descansar. Sensação de que não sobra tempo pra nada.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">💸</div>
+      <h3>Salário que não cresce</h3>
+      <p>Reajuste abaixo da inflação todo ano. Contas aumentando, salário parado.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">😕</div>
+      <h3>Já tentou e não funcionou</h3>
+      <p>Tentou vender algo, investiu tempo, não deu resultado. Ficou na dúvida se é possível pra você.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">🌀</div>
+      <h3>Não sabe por onde começar</h3>
+      <p>Muita informação na internet, cada um fala uma coisa. Paralisia por excesso de opções.</p>
     </div>
   </div>
 </section>
 
-<!-- FOR YOU -->
-<section class="for-you">
-  <div class="container">
-    <div class="section-label">Esse guia é para você se</div>
-    <h2>Você quer <em>agir</em>,<br>não só aprender</h2>
-    <ul class="for-list">
-      <li>
-        <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Trabalha de carteira assinada e quer construir uma renda extra sem pressão de largar o emprego agora
-      </li>
-      <li>
-        <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Tem no máximo 1 hora por dia disponível e quer saber como usar esse tempo da forma mais eficiente
-      </li>
-      <li>
-        <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Não tem experiência com internet, tecnologia ou vendas online e quer começar do absoluto zero
-      </li>
-      <li>
-        <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Quer uma renda que funciona mesmo quando você está no trabalho — sem trocar tempo por dinheiro a cada hora
-      </li>
-      <li>
-        <div class="check-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        Está pronto para agir agora, não para estudar mais 3 meses antes de começar
-      </li>
+<!-- ═══ PÚBLICO ═════════════════════════════════════════ -->
+<section>
+  <div class="section-label">ESSE GUIA É PRA VOCÊ SE</div>
+  <h2>Você quer <em>agir</em>,<br>não só aprender</h2>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <div style="font-size:18px;flex-shrink:0;">✅</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Trabalha de carteira assinada e quer construir uma renda extra sem pressão de largar o emprego agora</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <div style="font-size:18px;flex-shrink:0;">✅</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Tem no máximo 1 hora por dia disponível e quer saber como usar esse tempo da forma mais eficiente</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <div style="font-size:18px;flex-shrink:0;">✅</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Não tem experiência com internet, tecnologia ou vendas online e quer começar do absoluto zero</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <div style="font-size:18px;flex-shrink:0;">✅</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Quer uma renda que funciona mesmo quando você está no trabalho — sem trocar tempo por dinheiro</p>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <div style="font-size:18px;flex-shrink:0;">✅</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Está pronto pra agir agora, não pra estudar mais 3 meses antes de começar</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUTHOR ═══════════════════════════════════════════ -->
+<section>
+  <div class="section-label">QUEM ESCREVEU ISSO</div>
+  <h2>Feito por quem<br><em>viveu na pele</em></h2>
+
+  <div class="author-card">
+    <div class="author-avatar">👷</div>
+    <div class="author-info">
+      <h3>Felipe Dazzi</h3>
+      <div class="role">Operador de linha de produção · Criador digital</div>
+      <p>
+        Esse guia não foi escrito por um guru que nunca trabalhou de carteira assinada. Foi escrito por quem saiu da linha de produção e construiu renda extra do zero — enquanto ainda batia ponto.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CAPÍTULOS ════════════════════════════════════════ -->
+<section>
+  <div class="section-label">O QUE VOCÊ VAI APRENDER</div>
+  <h2>7 capítulos.<br><em>Tudo que você precisa</em> pra começar.</h2>
+
+  <div class="caps-grid">
+    <div class="cap-card">
+      <div class="cap-num">01</div>
+      <h4>A realidade que ninguém te conta</h4>
+      <p>Por que o CLT tem teto baixo e como usar a segurança que ele dá como alavanca.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">02</div>
+      <h4>Seu maior inimigo não é o tempo</h4>
+      <p>O erro mental que faz 90% desistirem no primeiro mês — e como evitá-lo.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">03</div>
+      <h4>Escolhendo o produto certo</h4>
+      <p>A pesquisa de 10 minutos que valida qualquer ideia antes de você criar nada.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">04</div>
+      <h4>Criando o e-book em 7 dias</h4>
+      <p>Ferramentas gratuitas, estrutura, preço certo e como cadastrar na Hotmart ou Kiwify.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">05</div>
+      <h4>Tráfego direto que converte</h4>
+      <p>Como configurar Meta Ads com R$10/dia e os públicos que funcionam pra esse nicho.</p>
+    </div>
+    <div class="cap-card">
+      <div class="cap-num">06</div>
+      <h4>A página que converte</h4>
+      <p>Os 5 elementos obrigatórios e como ter prova social mesmo sem nenhum depoimento ainda.</p>
+    </div>
+    <div class="cap-card" style="grid-column:1/-1;max-width:400px;margin:0 auto;">
+      <div class="cap-num">07</div>
+      <h4>Primeiras vendas e próximos passos</h4>
+      <p>O que fazer nas primeiras 48h após subir o anúncio e o mapa pra R$5.000/mês.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BÔNUS ════════════════════════════════════════════ -->
+<section>
+  <div class="section-label">BÔNUS INCLUÍDOS</div>
+  <h2>Mais que um e-book.<br><em>Um kit completo</em> pra começar.</h2>
+
+  <div class="bonus-grid">
+    <div class="bonus-card">
+      <div class="bonus-icon">✅</div>
+      <h4>Checklist dos 7 dias</h4>
+      <p>Do zero ao produto no ar. Dia a dia: o que fazer, em qual ordem, sem precisar pensar. Só marcar e executar.</p>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">🎯</div>
+      <h4>3 headlines prontas</h4>
+      <p>As 3 estruturas de headline que mais convertem no nicho de renda extra. Você só preenche com seus dados e cola na página.</p>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">📊</div>
+      <h4>Calculadora de tráfego</h4>
+      <p>Planilha simples: coloque o preço e o orçamento, ela mostra quantas vendas precisa fazer pra lucrar.</p>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">💡</div>
+      <h4>E-book: 15 Formas de Renda Extra</h4>
+      <p>Guia bônus com 15 formas reais de ganhar dinheiro fora do salário — de R$50 a R$5.000/mês.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICE ════════════════════════════════════════════ -->
+<section id="preco">
+  <div class="section-label" style="text-align:center;">INVESTIMENTO</div>
+  <h2 style="text-align:center;">Menos do que um<br><em>almoço no shopping</em></h2>
+
+  <div class="price-section">
+    <div class="price-label">E-book completo + todos os bônus</div>
+    <div class="price-old">De R$47</div>
+    <div class="price-current"><small>R$</small>19<span style="font-size:24px;opacity:.5;">,90</span></div>
+    <div class="price-meta">Acesso imediato · Pagamento único · Pra sempre</div>
+    <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-buy" target="_blank">
+      🔥 Quero começar agora →
+    </a>
+    <ul class="price-includes">
+      <li>📘 E-book Renda Extra do Zero</li>
+      <li>📋 Checklist de 7 dias</li>
+      <li>✍️ 3 templates de headline</li>
+      <li>📊 Calculadora de tráfego</li>
+      <li>🎁 E-book bônus grátis</li>
+      <li>🔓 Acesso vitalício</li>
     </ul>
   </div>
 </section>
 
-<!-- STORY -->
-<section class="story-section">
-  <div class="container">
-    <div class="section-label">Quem escreveu isso</div>
-    <h2>Feito por quem<br><em>viveu na pele</em></h2>
-    <p class="lead">Esse guia não foi escrito por um guru que nunca trabalhou de carteira assinada. Foi escrito por quem saiu da linha de produção e construiu renda extra do zero.</p>
-    <div class="story-box">
-      <p>Trabalhei anos em linha de produção numa montadora. Oito horas em pé, mesmo movimento repetido centenas de vezes. Salário certo todo mês — mas sem perspectiva de crescimento real.</p>
-      <p>Comecei a estudar renda extra nas minhas horas livres. Errei muito. Perdi dinheiro em estratégias que não funcionavam para quem tem pouco tempo. Até encontrar um modelo simples que funciona com 1 hora por dia e menos de R$300 de investimento inicial.</p>
-      <p>Esse guia é o que eu queria ter lido quando comecei. Sem enrolação, sem teoria, sem promessa impossível. Só o caminho prático de quem já fez.</p>
-      <div class="story-author">
-        <img src="data:image/jpeg;base64,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" alt="Felipe Dazzi" style="width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid #1D9E75;">
-        <div>
-          <div class="author-name">Felipe Dazzi</div>
-          <div class="author-role">Operador de linha de produção · Criador digital</div>
-        </div>
-      </div>
-    </div>
+<!-- ═══ FAQ ══════════════════════════════════════════════ -->
+<section>
+  <div class="section-label">DÚVIDAS FREQUENTES</div>
+  <h2>Respondendo antes<br>de você <em>perguntar</em></h2>
+
+  <div class="faq-item">
+    <div class="faq-q">⚡ Como vou receber o e-book?</div>
+    <div class="faq-a">Após a confirmação do pagamento, você recebe acesso imediato para download. Também enviamos uma cópia por e-mail.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">🔒 E se eu não gostar?</div>
+    <div class="faq-a">Você tem 7 dias de garantia. Se não servir, devolvemos 100% do seu dinheiro — sem perguntas, sem burocracia.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">⏰ Preciso de muito tempo por dia?</div>
+    <div class="faq-a">Não. O método foi criado pra quem tem no máximo 1 hora por dia. A leitura do e-book leva 25 minutos.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">📱 Funciona pra quem não entende nada de internet?</div>
+    <div class="faq-a">Sim. O guia foi escrito pensando em quem começa do zero. Ferramentas gratuitas, passo a passo sem termos técnicos.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">💳 Quais formas de pagamento?</div>
+    <div class="faq-a">Cartão de crédito, boleto bancário e Pix. Tudo processado pela Kiwify, plataforma 100% segura.</div>
   </div>
 </section>
 
-<!-- CONTENT -->
-<section class="content-section">
-  <div class="container">
-    <div class="section-label">O que você vai aprender</div>
-    <h2>7 capítulos.<br><em>Tudo que você precisa</em> para começar.</h2>
-    <div class="chapters">
-      <div class="chapter-row">
-        <div class="ch-badge">01</div>
-        <div class="ch-info">
-          <strong>A realidade que ninguém te conta</strong>
-          <span>Por que o CLT tem teto baixo e como usar a segurança que ele dá como alavanca</span>
-        </div>
-      </div>
-      <div class="chapter-row">
-        <div class="ch-badge">02</div>
-        <div class="ch-info">
-          <strong>Seu maior inimigo não é o tempo</strong>
-          <span>O erro mental que faz 90% desistirem no primeiro mês — e como evitá-lo</span>
-        </div>
-      </div>
-      <div class="chapter-row">
-        <div class="ch-badge">03</div>
-        <div class="ch-info">
-          <strong>Escolhendo o produto certo</strong>
-          <span>A pesquisa de 10 minutos que valida qualquer ideia antes de você criar nada</span>
-        </div>
-      </div>
-      <div class="chapter-row">
-        <div class="ch-badge">04</div>
-        <div class="ch-info">
-          <strong>Criando o e-book em 7 dias</strong>
-          <span>Ferramentas gratuitas, estrutura, preço certo e como cadastrar na Hotmart ou Kiwify</span>
-        </div>
-      </div>
-      <div class="chapter-row">
-        <div class="ch-badge">05</div>
-        <div class="ch-info">
-          <strong>Tráfego direto que converte</strong>
-          <span>Como configurar Meta Ads com R$10/dia e os públicos que funcionam para esse nicho</span>
-        </div>
-      </div>
-      <div class="chapter-row">
-        <div class="ch-badge">06</div>
-        <div class="ch-info">
-          <strong>A página que converte</strong>
-          <span>Os 5 elementos obrigatórios e como ter prova social mesmo sem nenhum depoimento ainda</span>
-        </div>
-      </div>
-      <div class="chapter-row">
-        <div class="ch-badge">07</div>
-        <div class="ch-info">
-          <strong>Primeiras vendas e próximos passos</strong>
-          <span>O que fazer nas primeiras 48h após subir o anúncio e o mapa para R$5.000/mês</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BONUS -->
-<section class="bonus-section">
-  <div class="container">
-    <div class="section-label">Bônus incluídos</div>
-    <h2>Mais do que um e-book.<br><em>Um kit completo</em> para começar.</h2>
-    <div class="bonus-card">
-      <div class="bonus-icon">✅</div>
-      <div>
-        <div class="bonus-title">Checklist dos 7 dias — Do zero ao produto no ar</div>
-        <div class="bonus-desc">A sequência exata do capítulo 4 transformada em checklist diário. Dia 1 ao dia 7: o que fazer, em qual ordem, sem precisar pensar. Só marcar e executar.</div>
-        <div class="bonus-value">Bônus gratuito incluso</div>
-      </div>
-    </div>
-    <div class="bonus-card">
-      <div class="bonus-icon">🎯</div>
-      <div>
-        <div class="bonus-title">3 headlines prontas para sua página de vendas</div>
-        <div class="bonus-desc">As 3 estruturas de headline que mais convertem no nicho de renda extra — baseadas no capítulo 6. Você só preenche com seus dados e cola na página. Sem escrever do zero.</div>
-        <div class="bonus-value">Bônus gratuito incluso</div>
-      </div>
-    </div>
-    <div class="bonus-card">
-      <div class="bonus-icon">📊</div>
-      <div>
-        <div class="bonus-title">Calculadora de tráfego — Quanto investir para lucrar</div>
-        <div class="bonus-desc">Uma planilha simples onde você coloca o preço do produto e o orçamento diário de anúncio, e ela mostra quantas vendas precisa fazer para lucrar. Direto do capítulo 5.</div>
-        <div class="bonus-value">Bônus gratuito incluso</div>
-      </div>
-    </div>
-    <div class="bonus-card">
-      <div class="bonus-icon">💡</div>
-      <div>
-        <div class="bonus-title">E-book: 15 Formas de Renda Extra para Começar Hoje</div>
-        <div class="bonus-desc">Um guia direto com 15 formas reais de ganhar dinheiro fora do salário — desde opções que exigem menos de R$50 até modelos que escalam para R$5.000/mês. Para cada forma: o que é, quanto dá para ganhar, quanto tempo leva e por onde começar.</div>
-        <div class="bonus-value">Bônus gratuito incluso</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICE -->
-<section class="price-section" id="preco">
-  <div class="container">
-    <div class="section-label" style="color:var(--amber);">Investimento</div>
-    <h2>Menos do que um<br><em>almoço no shopping</em></h2>
-    <div class="price-box">
-      <div class="price-label">E-book completo + todos os bônus</div>
-      <div class="price-from" style="color:var(--amber);text-decoration:line-through;font-weight:500;">De R$47</div>
-      <div class="price-main"><span>R$</span>19,90</div>
-      <div style="width:40px;height:3px;background:var(--amber);border-radius:99px;margin:8px auto 0;"></div>
-      <div class="price-sub" style="margin-top:12px;">Acesso imediato · Pagamento único · Para sempre</div>
-      <div class="price-includes">
-        <div class="price-line"><span class="dot"></span>E-book Renda Extra do Zero (12 páginas)</div>
-        <div class="price-line"><span class="dot"></span>Checklist de 7 dias para lançar seu produto</div>
-        <div class="price-line"><span class="dot"></span>3 templates de copy para Meta Ads</div>
-        <div class="price-line"><span class="dot"></span>Planilha de controle de resultados</div>
-        <div class="price-line"><span class="dot"></span>E-book bônus: 15 Formas de Renda Extra</div>
-        <div class="price-line"><span class="dot"></span>Acesso vitalício — incluindo atualizações</div>
-      </div>
-      <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-primary-lg">
-        Quero começar agora por R$19,90 →
-      </a>
-      <div class="guarantee-strip" style="color:var(--amber);">
-        <svg width="14" height="14" style="stroke:var(--amber);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Pagamento seguro · Hotmart · Acesso em menos de 2 minutos
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="container">
-    <div class="section-label" style="color:var(--amber);">Perguntas frequentes</div>
-    <h2>Respondendo antes<br><em>de você perguntar</em></h2>
-    <div style="margin-top: 28px; text-align:left;">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Funciona para quem não tem experiência nenhuma?</div>
-        <div class="faq-a">Sim. O guia foi escrito exatamente para quem está começando do zero. Cada passo é explicado de forma simples, com ferramentas gratuitas que qualquer pessoa consegue usar no celular ou computador.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo preciso dedicar por dia?</div>
-        <div class="faq-a">1 hora por dia é suficiente para seguir o método. O guia foi desenhado para quem tem turno de trabalho e pouco tempo livre. Muitas pessoas usam o intervalo do almoço ou a hora antes de dormir.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Preciso investir dinheiro além do e-book?</div>
-        <div class="faq-a">Para criar o produto, não. As ferramentas indicadas são gratuitas. Para vender com tráfego pago, o recomendado é R$300 de orçamento inicial para anúncios. Mas você pode começar organicamente antes disso.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Em quanto tempo vejo resultado?</div>
-        <div class="faq-a">Seguindo o checklist de 7 dias, você pode ter um produto pronto e um anúncio no ar na primeira semana. Resultados (vendas) variam — mas quem executa o método completo costuma ver as primeiras vendas nos primeiros 14 a 30 dias.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Como recebo o e-book após a compra?</div>
-        <div class="faq-a">Imediatamente após o pagamento confirmado, você recebe acesso por e-mail com o link para baixar o PDF. Todo o processo é automático e leva menos de 2 minutos.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <div class="section-label" style="color:#5DCAA5;">Última chance</div>
-    <h2>A primeira venda<br><em>muda tudo</em></h2>
-    <p class="lead">Não pelo dinheiro — pela prova de que funciona. De que você consegue. Esse e-book é o mapa. O passo é seu.</p>
-    <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-primary-lg">
-      Quero minha cópia por R$19,90 →
-    </a>
-    <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,.35);">Acesso imediato · Pagamento único · Sem assinatura</p>
-  </div>
-</section>
-
-<footer>
-  <p>Renda Extra do Zero — Todos os direitos reservados · Conteúdo educacional e informativo</p>
-</footer>
-
-<!-- STICKY BAR -->
-<div class="sticky-bar" id="sticky">
-  <div class="sticky-text">
-    <strong>Renda Extra do Zero</strong>
-    E-book completo + bônus
-  </div>
-  <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-sticky">R$19,90 →</a>
+<!-- ═══ FINAL CTA ════════════════════════════════════════ -->
+<div style="text-align:center;padding:40px 0;">
+  <h2 style="margin-bottom:16px;">A primeira venda<br><em>muda tudo</em></h2>
+  <p style="font-size:15px;color:rgba(255,255,255,.5);line-height:1.7;max-width:420px;margin:0 auto 28px;">
+    Depois que você vê que funciona, a confiança vem. E aí você escala. O primeiro passo é o mais difícil — e o mais importante.
+  </p>
+  <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-buy" target="_blank">
+    🔥 Quero minha cópia por R$19,90 →
+  </a>
+  <div style="font-size:12px;color:rgba(255,255,255,.3);margin-top:12px;">7 dias de garantia · Acesso imediato</div>
 </div>
 
-<script>
-  function toggleFaq(el) {
-    const item = el.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
+</div>
 
-  const sticky = document.getElementById('sticky');
-  const hero = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    sticky.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0);
-  }, { passive: true });
-</script>
+<footer>
+  <p>© 2026 Felipe Dazzi · Jornada CLT → Liberdade · Feito por quem viveu na pele</p>
+  <p style="margin-top:8px;">📱 <a href="https://instagram.com/felipe.dazzi" style="color:rgba(255,255,255,.3);text-decoration:none;" target="_blank">@felipe.dazzi</a></p>
+</footer>
+
 </body>
 </html>
