@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Renda Extra do Zero — A Jornada CLT → Liberdade</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,6 +20,7 @@
     --white:       #FFFFFF;
     --serif:       'DM Serif Display', Georgia, serif;
     --sans:        'DM Sans', sans-serif;
+    --display:     'Space Grotesk', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -176,6 +177,15 @@
 
   .dores-grid, .caps-grid, .bonus-grid { text-align: left; }
 
+  /* ── BULLET POINT ──────────────────────────────────── */
+  .bullet {
+    color: var(--green-mid);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
   /* ── DORES ──────────────────────────────────────────── */
   .dores-grid {
     display: grid;
@@ -188,7 +198,7 @@
     border-radius: 12px;
     padding: 24px;
   }
-  .dor-icon { font-size: 28px; margin-bottom: 10px; }
+  .dor-icon { color: var(--green-mid); font-size: 16px; font-weight: 700; margin-bottom: 10px; }
   .dor-card h3 {
     font-size: 15px;
     font-weight: 600;
@@ -219,9 +229,12 @@
     border: 2px solid var(--green-mid);
   }
   .author-info h3 {
-    font-family: var(--serif);
-    font-size: 20px;
-    margin-bottom: 4px;
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin-bottom: 2px;
+    color: var(--white);
   }
   .author-info .role {
     font-size: 13px;
@@ -281,7 +294,7 @@
     border-radius: 12px;
     padding: 24px;
   }
-  .bonus-icon { font-size: 32px; margin-bottom: 10px; }
+  .bonus-icon { color: var(--green-mid); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
   .bonus-card h4 {
     font-size: 14px;
     font-weight: 600;
@@ -358,23 +371,49 @@
     display: flex; align-items: center; gap: 6px;
   }
 
+  /* ── PRICE ANCHOR ──────────────────────────────────── */
+  .price-compare {
+    font-size: 12px;
+    color: rgba(255,255,255,.25);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .price-compare strong { color: rgba(255,255,255,.4); }
+
   /* ── FAQ ────────────────────────────────────────────── */
   .faq-item {
     border-bottom: 1px solid var(--border);
-    padding: 20px 0;
   }
   .faq-item:last-child { border: none; }
   .faq-q {
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 6px;
     color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 0;
+    user-select: none;
+    transition: color .2s;
   }
+  .faq-q:hover { color: var(--green-lt); }
+  .faq-arrow {
+    font-size: 12px;
+    color: var(--green-mid);
+    transition: transform .25s ease;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
   .faq-a {
     font-size: 13px;
     color: rgba(255,255,255,.45);
     line-height: 1.6;
+    padding: 0 0 20px;
+    display: none;
   }
+  .faq-item.open .faq-a { display: block; }
 
   /* ── FOOTER ─────────────────────────────────────────── */
   footer {
@@ -416,7 +455,7 @@
   <p>
     Não é mais um guia genérico de renda extra. É o passo a passo real que EU usei pra criar meu primeiro produto digital em 7 dias — enquanto trabalhava 8h por dia.
   </p>
-  <a href="#preco" class="btn-primary">📖 Quero minha cópia →</a>
+  <a href="#preco" class="btn-primary">Quero minha cópia →</a>
   <div class="meta">Acesso imediato após pagamento · 100% digital</div>
 </div>
 
@@ -443,22 +482,22 @@
 
   <div class="dores-grid">
     <div class="dor-card">
-      <div class="dor-icon">⏰</div>
+      <div class="dor-icon">●</div>
       <h3>Sem tempo depois do trabalho</h3>
       <p>Turno de 8h e quando chega em casa só quer descansar. Sensação de que não sobra tempo pra nada.</p>
     </div>
     <div class="dor-card">
-      <div class="dor-icon">💸</div>
+      <div class="dor-icon">●</div>
       <h3>Salário que não cresce</h3>
       <p>Reajuste abaixo da inflação todo ano. Contas aumentando, salário parado.</p>
     </div>
     <div class="dor-card">
-      <div class="dor-icon">😕</div>
+      <div class="dor-icon">●</div>
       <h3>Já tentou e não funcionou</h3>
       <p>Tentou vender algo, investiu tempo, não deu resultado. Ficou na dúvida se é possível pra você.</p>
     </div>
     <div class="dor-card">
-      <div class="dor-icon">🌀</div>
+      <div class="dor-icon">●</div>
       <h3>Não sabe por onde começar</h3>
       <p>Muita informação na internet, cada um fala uma coisa. Paralisia por excesso de opções.</p>
     </div>
@@ -472,24 +511,24 @@
 
   <div style="display:flex;flex-direction:column;gap:12px;max-width:520px;margin:0 auto;">
     <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
-      <div style="font-size:18px;flex-shrink:0;margin-top:1px;">✅</div>
+      <div class="bullet">●</div>
       <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;">Trabalha de carteira assinada e quer construir uma renda extra sem pressão de largar o emprego agora</p>
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
-      <div style="font-size:18px;flex-shrink:0;">✅</div>
-      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Tem no máximo 1 hora por dia disponível e quer saber como usar esse tempo da forma mais eficiente</p>
+      <div class="bullet">●</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;">Tem no máximo 1 hora por dia disponível e quer saber como usar esse tempo da forma mais eficiente</p>
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
-      <div style="font-size:18px;flex-shrink:0;">✅</div>
-      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Não tem experiência com internet, tecnologia ou vendas online e quer começar do absoluto zero</p>
+      <div class="bullet">●</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;">Não tem experiência com internet, tecnologia ou vendas online e quer começar do absoluto zero</p>
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
-      <div style="font-size:18px;flex-shrink:0;">✅</div>
-      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Quer uma renda que funciona mesmo quando você está no trabalho — sem trocar tempo por dinheiro</p>
+      <div class="bullet">●</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;">Quer uma renda que funciona mesmo quando você está no trabalho — sem trocar tempo por dinheiro</p>
     </div>
     <div style="display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;">
-      <div style="font-size:18px;flex-shrink:0;">✅</div>
-      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;">Está pronto pra agir agora, não pra estudar mais 3 meses antes de começar</p>
+      <div class="bullet">●</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;">Está pronto pra agir agora, não pra estudar mais 3 meses antes de começar</p>
     </div>
   </div>
 </section>
@@ -503,9 +542,9 @@
     <img src="felipe.jpg" alt="Felipe Dazzi" class="author-photo">
     <div class="author-info">
       <h3>Felipe Dazzi</h3>
-      <div class="role">Operador de linha de produção · Criador digital</div>
+      <div class="role">15 anos na linha de produção · Criador digital</div>
       <p>
-        Esse guia não foi escrito por um guru que nunca trabalhou de carteira assinada. Foi escrito por quem saiu da linha de produção e construiu renda extra do zero — enquanto ainda batia ponto.
+        Passei 15 anos vendendo minha hora numa multinacional. Acordava 5h da manhã, voltava 18h, e no fim do mês o salário não fechava as contas. Foi aí que entendi: se eu continuasse trocando tempo por dinheiro, nunca ia sair do lugar. Esse guia é o caminho que EU usei pra dar o primeiro passo — e que pode funcionar pra você também.
       </p>
     </div>
   </div>
@@ -535,7 +574,7 @@
     <div class="cap-card">
       <div class="cap-num">04</div>
       <h4>Criando o e-book em 7 dias</h4>
-      <p>Ferramentas gratuitas, estrutura, preço certo e como cadastrar na Hotmart ou Kiwify.</p>
+      <p>Ferramentas gratuitas, estrutura, preço certo e como cadastrar na Cakto.</p>
     </div>
     <div class="cap-card">
       <div class="cap-num">05</div>
@@ -562,22 +601,22 @@
 
   <div class="bonus-grid">
     <div class="bonus-card">
-      <div class="bonus-icon">✅</div>
+      <div class="bonus-icon">●</div>
       <h4>Checklist dos 7 dias</h4>
       <p>Do zero ao produto no ar. Dia a dia: o que fazer, em qual ordem, sem precisar pensar. Só marcar e executar.</p>
     </div>
     <div class="bonus-card">
-      <div class="bonus-icon">🎯</div>
+      <div class="bonus-icon">●</div>
       <h4>3 headlines prontas</h4>
       <p>As 3 estruturas de headline que mais convertem no nicho de renda extra. Você só preenche com seus dados e cola na página.</p>
     </div>
     <div class="bonus-card">
-      <div class="bonus-icon">📊</div>
+      <div class="bonus-icon">●</div>
       <h4>Calculadora de tráfego</h4>
       <p>Planilha simples: coloque o preço e o orçamento, ela mostra quantas vendas precisa fazer pra lucrar.</p>
     </div>
     <div class="bonus-card">
-      <div class="bonus-icon">💡</div>
+      <div class="bonus-icon">●</div>
       <h4>E-book: 15 Formas de Renda Extra</h4>
       <p>Guia bônus com 15 formas reais de ganhar dinheiro fora do salário — de R$50 a R$5.000/mês.</p>
     </div>
@@ -591,19 +630,23 @@
 
   <div class="price-section">
     <div class="price-label">E-book completo + todos os bônus</div>
-    <div class="price-old">De R$47</div>
+    <div class="price-old">De R$97</div>
     <div class="price-current"><small>R$</small>19<span style="font-size:24px;opacity:.5;">,90</span></div>
+    <div class="price-compare">
+      1 hora do seu salário CLT vale mais que isso.<br>
+      <strong>E o e-book dura pra sempre.</strong>
+    </div>
     <div class="price-meta">Acesso imediato · Pagamento único · Pra sempre</div>
     <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-buy" target="_blank">
-      🔥 Quero começar agora →
+      Quero começar agora →
     </a>
     <ul class="price-includes">
-      <li>📘 E-book Renda Extra do Zero</li>
-      <li>📋 Checklist de 7 dias</li>
-      <li>✍️ 3 templates de headline</li>
-      <li>📊 Calculadora de tráfego</li>
-      <li>🎁 E-book bônus grátis</li>
-      <li>🔓 Acesso vitalício</li>
+      <li><span class="bullet" style="font-size:11px;">●</span> E-book Renda Extra do Zero</li>
+      <li><span class="bullet" style="font-size:11px;">●</span> Checklist de 7 dias</li>
+      <li><span class="bullet" style="font-size:11px;">●</span> 3 templates de headline</li>
+      <li><span class="bullet" style="font-size:11px;">●</span> Calculadora de tráfego</li>
+      <li><span class="bullet" style="font-size:11px;">●</span> E-book bônus grátis</li>
+      <li><span class="bullet" style="font-size:11px;">●</span> Acesso vitalício</li>
     </ul>
   </div>
 </section>
@@ -614,24 +657,39 @@
   <h2>Respondendo antes<br>de você <em>perguntar</em></h2>
 
   <div class="faq-item">
-    <div class="faq-q">⚡ Como vou receber o e-book?</div>
+    <div class="faq-q">
+      Como vou receber o e-book?
+      <span class="faq-arrow">▼</span>
+    </div>
     <div class="faq-a">Após a confirmação do pagamento, você recebe acesso imediato para download. Também enviamos uma cópia por e-mail.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">🔒 E se eu não gostar?</div>
+    <div class="faq-q">
+      E se eu não gostar?
+      <span class="faq-arrow">▼</span>
+    </div>
     <div class="faq-a">Você tem 7 dias de garantia. Se não servir, devolvemos 100% do seu dinheiro — sem perguntas, sem burocracia.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">⏰ Preciso de muito tempo por dia?</div>
+    <div class="faq-q">
+      Preciso de muito tempo por dia?
+      <span class="faq-arrow">▼</span>
+    </div>
     <div class="faq-a">Não. O método foi criado pra quem tem no máximo 1 hora por dia. A leitura do e-book leva 25 minutos.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">📱 Funciona pra quem não entende nada de internet?</div>
+    <div class="faq-q">
+      Funciona pra quem não entende nada de internet?
+      <span class="faq-arrow">▼</span>
+    </div>
     <div class="faq-a">Sim. O guia foi escrito pensando em quem começa do zero. Ferramentas gratuitas, passo a passo sem termos técnicos.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">💳 Quais formas de pagamento?</div>
-    <div class="faq-a">Cartão de crédito, boleto bancário e Pix. Tudo processado pela Kiwify, plataforma 100% segura.</div>
+    <div class="faq-q">
+      Quais formas de pagamento?
+      <span class="faq-arrow">▼</span>
+    </div>
+    <div class="faq-a">Cartão de crédito, boleto bancário e Pix. Tudo processado pela Cakto, plataforma 100% segura.</div>
   </div>
 </section>
 
@@ -642,12 +700,24 @@
     Depois que você vê que funciona, a confiança vem. E aí você escala. O primeiro passo é o mais difícil — e o mais importante.
   </p>
   <a href="https://pay.cakto.com.br/33ygp79_892193" class="btn-buy" target="_blank">
-    🔥 Quero minha cópia por R$19,90 →
+    Quero minha cópia por R$19,90 →
   </a>
   <div style="font-size:12px;color:rgba(255,255,255,.3);margin-top:12px;">7 dias de garantia · Acesso imediato</div>
 </div>
 
 </div>
+
+<!-- ═══ FAQ ACCORDION JS ═══════════════════════════════ -->
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
 
 <footer>
   <p>© 2026 Felipe Dazzi · Jornada CLT → Liberdade · Feito por quem viveu na pele</p>
